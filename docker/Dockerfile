@@ -16,7 +16,7 @@ WORKDIR ${HOME}
 RUN apt-get update && \
     apt-get install -y curl git wget build-essential
 
-# Install cmake which is a requirement by xlearn 
+# Install cmake which is a requirement by xlearn
 ARG CMAKE="https://github.com/Kitware/CMake/releases/download/v3.15.2/cmake-3.15.2.tar.gz"
 RUN wget ${CMAKE} -O cmake.tgz && \
     mkdir cmake && \
@@ -24,7 +24,7 @@ RUN wget ${CMAKE} -O cmake.tgz && \
     cd cmake && \
     ./bootstrap && \
     make && \
-    make install
+    make install && \
     cd .. && \
     rm cmake.tgz && \
     rm -rf cmake
